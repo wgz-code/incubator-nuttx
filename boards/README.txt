@@ -768,6 +768,9 @@ boards/arm/stm32/stm32f103-minimum
 
 boards/arm/stm32/stm32f4discovery
   STMicro STM32F4-Discovery board based on the STMicro STM32F407VGT6 MCU.
+  
+boards/arm/stm32/aiit-arm32-board
+  STMicro STM32F4-AIIT board based on the STMicro STM32F407VGT6 MCU.
 
 boards/arm/stm32/stm32f411e-disco
   This is a minimal configuration that supports low-level test of the
