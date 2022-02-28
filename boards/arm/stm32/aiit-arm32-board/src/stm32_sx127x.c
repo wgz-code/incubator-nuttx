@@ -47,7 +47,7 @@
 
 /* SX127X on SPI1 bus */
 
-#define SX127X_SPI 1
+#define SX127X_SPI 2
 
 /****************************************************************************
  * Private Function Prototypes

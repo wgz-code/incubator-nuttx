@@ -116,6 +116,10 @@
 #  include <nuttx/usb/adb.h>
 #endif
 
+#ifdef CONFIG_SENSORS_HS300X
+#include "stm32_hs300x.h"
+#endif
+
 /****************************************************************************
  * Public Functions
  ****************************************************************************/
@@ -534,6 +538,14 @@ int stm32_bringup(void)
 #ifdef CONFIG_USBADB
   usbdev_adb_initialize();
 #endif
+
+#ifdef CONFIG_SENSORS_HS300X
+  ret = board_hs300x_initialize(0, 1);
+  if (ret < 0)
+    {
+      syslog(LOG_ERR, "Failed to initialize HS300x, error %d\n", ret);
+    }
+#endif /* CONFIG_SENSORS_HS300X */
 
   return ret;
 }
