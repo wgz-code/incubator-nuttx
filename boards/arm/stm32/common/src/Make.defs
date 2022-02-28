@@ -130,6 +130,10 @@ ifeq ($(CONFIG_BOARD_STM32_IHM16M1),y)
   CSRCS += stm32_ihm16m1.c
 endif
 
+ifeq ($(CONFIG_SENSORS_HS300X),y)
+  CSRCS += stm32_hs300x.c
+endif
+
 DEPPATH += --dep-path src
 VPATH += :src
 CFLAGS += $(shell $(INCDIR) "$(CC)" $(TOPDIR)$(DELIM)arch$(DELIM)$(CONFIG_ARCH)$(DELIM)src$(DELIM)board$(DELIM)src)

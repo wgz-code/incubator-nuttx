@@ -1011,4 +1011,24 @@ config HDC1008_DEBUG
 		Enables debug features for the HDC1008
 
 endif # SENSORS_HDC1008
+
+
+config HS300X_I2C
+	bool
+	default y if HS300X
+
+config SENSORS_HS300X
+	bool "HS300X Temperature and Humidity Sensor support"
+	default n
+	select I2C
+	select HS300X_I2C
+	---help---
+		Enable driver support for the HS300X Temperature and Humidity sensor.
+
+config HS300X_I2C_FREQUENCY
+	int "HS300X I2C frequency"
+	default 400000
+	range 1 900000
+	depends on HS300X_I2C
+
 endif # SENSORS

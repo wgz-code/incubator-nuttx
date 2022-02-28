@@ -334,6 +334,7 @@ void generate_definitions(FILE *stream)
               else if (strcmp(varval, "y") == 0)
                 {
                   printf("#define %s 1\n", varname);
+                  printf("#define %s 1\n", &varname[7]);
                 }
 
               /* Or to '2' if it has the special value 'm' */
@@ -341,6 +342,7 @@ void generate_definitions(FILE *stream)
               else if (strcmp(varval, "m") == 0)
                 {
                   printf("#define %s 2\n", varname);
+                  printf("#define %s 2\n", &varname[7]);
                 }
 
               /* Otherwise, use the value as provided */
@@ -348,6 +350,7 @@ void generate_definitions(FILE *stream)
               else
                 {
                   printf("#define %s %s\n", varname, varval);
+                  printf("#define %s %s\n", &varname[7], varval);                  
                 }
             }
         }

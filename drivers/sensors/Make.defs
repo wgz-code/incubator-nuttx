@@ -320,6 +320,12 @@ ifeq ($(CONFIG_SENSORS_HDC1008),y)
   CSRCS += hdc1008.c
 endif
 
+# HS300x
+
+ifeq ($(CONFIG_SENSORS_HS300X),y)
+  CSRCS += hs300x.c
+endif
+
 # Include sensor driver build support
 
 DEPPATH += --dep-path sensors
