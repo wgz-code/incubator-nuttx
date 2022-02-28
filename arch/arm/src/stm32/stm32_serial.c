@@ -3207,7 +3207,6 @@ void arm_serialinit(void)
 #ifdef HAVE_SERIALDRIVER
   char devname[16];
   unsigned i;
-  unsigned minor = 0;
 #ifdef CONFIG_PM
   int ret;
 #endif
@@ -3231,7 +3230,6 @@ void arm_serialinit(void)
    */
 
   uart_register("/dev/ttyS0", &g_uart_devs[CONSOLE_UART - 1]->dev);
-  minor = 1;
 #endif
 
 #if defined(SERIAL_HAVE_CONSOLE_RXDMA) || defined(SERIAL_HAVE_CONSOLE_TXDMA)
@@ -3265,7 +3263,7 @@ void arm_serialinit(void)
 
       /* Register USARTs as devices in increasing order */
 
-      devname[9] = '0' + minor++;
+      devname[9] = '0' + (i + 1);
       uart_register(devname, &g_uart_devs[i]->dev);
     }
 #endif /* HAVE UART */
